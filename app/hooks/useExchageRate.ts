@@ -1,12 +1,21 @@
- import { useQuery } from "@tanstack/react-query";
-import { fetchApi } from "../lib/api";
- 
- const useExchangeRate = () => {
+import { useQuery } from "@tanstack/react-query";
 
-    const queryKey = ["exchangeRate"];
-    const queryFn = fetchApi;
-    const result = useQuery({queryKey, queryFn ,staleTime: 1000 * 60 * 10, });
-    return result;
- }
+const fetchExchangeRate = async () => {
+  const response = await fetch("/api/exchange-rate");
 
- export { useExchangeRate };
+  if (!response.ok) {
+    throw new Error("Failed to fetch exchange rate");
+  }
+
+  return response.json();
+};
+
+const useExchangeRate = () => {
+  return useQuery({
+    queryKey: ["exchangeRate"],
+    queryFn: fetchExchangeRate,
+    staleTime: 1000 * 60 * 10,
+  });
+};
+
+export { useExchangeRate };

@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Currency Converter
+
+A simple USD/Toman currency converter built with **Next.js, TypeScript, Tailwind CSS, and TanStack Query**.
+
+## Features
+
+* Convert USD to Toman
+* Convert Toman to USD
+* Display current USD price
+* Display USD buy and sell prices
+* Loading state
+* Error handling
+* Number formatting
+* Responsive design
+
+## Technologies
+
+* Next.js
+* React
+* TypeScript
+* TanStack Query
+* Tailwind CSS
+
+## API
+
+Exchange rate data is provided by **Navasan API**.
+
+The API key is stored securely in environment variables and is not included in the source code.
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+Create a `.env.local` file in the root of the project:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NAVASAN_API_KEY=your_api_key
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The `.env.local` file is excluded from Git using `.gitignore`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```text
+app/
+├── api/
+│   └── exchange-rate/
+│       └── route.ts
+├── components/
+├── hooks/
+├── logic/
+├── layout.tsx
+├── page.tsx
+└── providers.tsx
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Resources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Navasan API for exchange rate data
+* UIverse for the loader component
+
+## Live Demo
+
+[Add your deployed project URL here]
+
+## GitHub
+
+[Add your GitHub repository URL here]

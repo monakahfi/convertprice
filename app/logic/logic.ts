@@ -1,15 +1,15 @@
 interface Iprice {
       money: number;
-  dollor: number;
+  dollar: number;
   setMoney: (value: number) => void;
   setCurrency: (value: "dollar" | "toman") => void;
 }
 
 const regex:RegExp = /\.?0+$/
 const separtment :RegExp= /\B(?=(\d{3})+(?!\d))/g
-const ConvertDollor = ({money, dollor, setMoney, setCurrency}: Iprice)=>{
-   const dollorValue = money / dollor
-     const result = dollorValue
+const ConvertDollar = ({money, dollar, setMoney, setCurrency}: Iprice)=>{
+   const dollarValue = money / dollar
+     const result = dollarValue
     .toFixed(2)
     .replace(regex,"");
     setMoney(Number(result))
@@ -18,13 +18,21 @@ const ConvertDollor = ({money, dollor, setMoney, setCurrency}: Iprice)=>{
 
     const formatNumber = (value: number) =>
         separtment.test(String(value)) ? String(value).replace(separtment, ",") : value
-const convertToman=({money, dollor, setMoney, setCurrency   }: Iprice)=>{
-    const tomanValue = money * dollor
-    const result = tomanValue
-    .toFixed(2)
-    .replace(regex,"");
-    setMoney(Number(result))
-    setCurrency("toman")    
-}
+const convertToman = ({
+  money,
+  dollar,
+  setMoney,
+  setCurrency,
+}: Iprice) => {
+  const tomanValue = money * dollar;
 
-export {ConvertDollor,convertToman ,separtment ,formatNumber}
+  const result = tomanValue
+    .toFixed(2)
+    .replace(regex, "");
+
+  setMoney(Number(result));
+  setCurrency("toman");
+};   
+
+
+export {ConvertDollar,convertToman ,separtment ,formatNumber}
