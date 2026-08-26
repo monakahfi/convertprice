@@ -11,9 +11,9 @@ function CurrencyConvert() {
     const [money, setMoney] = useState<number>(0)
     const [currency, setCurrency] = useState<"dollar" | "toman">("toman")
 
-    const dollor: number = data?.usd.value || 0
-    const sell: number = data?.usd_sell.value || 0
-    const buy: number = data?.usd_buy.value || 0
+    const dollor: number = data?.usd.value ?? 0
+    const sell: number = data?.usd_sell.value ?? 0
+    const buy: number = data?.usd_buy.value ?? 0
 
 
   return (
