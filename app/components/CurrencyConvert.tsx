@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { useExchangeRate } from "../hooks/useExchageRate"
 import { ConvertDollor, convertToman, formatNumber, separtment } from "../logic/logic"
+import Loader from "./loader"
+import ErrorMassage from "./error"
 
 
 
@@ -18,8 +20,8 @@ function CurrencyConvert() {
 
   return (
     <div className=" container md:flex-col m-auto p-2 w-full h-full flex flex-col justify-between items-center gap-4 bg-blue-50 shadow-2xl">
-        {isLoading && <p>Loading...</p>}
-        {isError && <p>Error fetching data</p>}
+        {isLoading && <span ><Loader /></span>}
+        {isError &&<span ><ErrorMassage /></span>}
 
      <div className="  flex  w-full h-40  p-4 mx-4 justify-between items-center  gap-4 bg-blue-100 shadow-2xl rounded-2xl">
       <p className="flex items-center text-xl font-semibold gap-2">{formatNumber(buy)}<img src="./toman.png" alt="Toman"  className="w-5 h-5"/>: قیمت روز خرید</p>
